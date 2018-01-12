@@ -8,7 +8,7 @@ var util = require('util');
 cors = require('cors');
 
 //astronauti
-var astronauti = require('./astronautiman.js');
+
 
 //POST
 var bodyParser = require('body-parser');
@@ -91,6 +91,83 @@ app.get('/', function(request, response) {
 
 });
 
+
+app.post('/unas', function(request, response) 
+{
+	var headers = {};
+	headers["Access-Control-Allow-Origin"] = "*";
+	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+	headers["Access-Control-Allow-Credentials"] = false;
+	headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+	headers["Content-Type"] = "application/json";
+  
+	
+    
+	
+	//check body and parameters
+	if ( typeof request.body !== 'undefined' && request.body)
+	{
+        var itemID;
+		var items;
+		
+		
+		//ItemId
+		if ( typeof request.body.ID !== 'undefined' && request.body.ID)
+			 itemID = parseFloat(request.body.ID);
+		else 
+			itemID = null;
+		
+		
+		var c =0;
+		
+		while (c < astronauti.length)
+		{
+			if (astronauti[c].ID == itemID){
+				items.push(astronauti[c]);
+				
+			}
+			
+			c++;
+		}
+		
+		
+		
+		if (items != null)
+		{
+			response.writeHead(200, headers);
+			response.end(JSON.stringify(items));
+		}
+		else
+		{
+			response.writeHead(404, headers);
+			response.end(JSON.stringify());
+		}
+        
+        
+        
+		
+	
+	}
+	else
+	{
+		//unaceptable input
+		response.writeHead(406, headers);
+		response.end(JSON.stringify("1"));
+		console.log("siamo qui");
+	}
+    
+
+});
+
+
+
+
+
+
+
+
+
 var astronauti = [
     {
 		ID: 1,
@@ -126,26 +203,6 @@ var astronauti = [
     
     
 ];
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  

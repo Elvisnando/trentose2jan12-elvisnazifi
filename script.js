@@ -19,21 +19,14 @@ $(document).ready(function()
 	
 	
 	$("#btn2").click(function(){
-		$.post(baseAddress + "/sellItem",
+		$.post(baseAddress + "/unas",
 		{
 			ID: 1,
-            size : "S",
-            colour: "blue"
+            
 		},
 		function(data, status){
-			alert("ID: " + data.ID + 
-				  "\n type: " + data.type +
-				  "\n size: " + data.size +
-				  "\n quantity: " + data.quantity +
-                  "\n colour: " + data.colour +
-                  "\n price: " + data.price +
-                  "\n season: " + data.season +
-				  "\n Status: " + status);
+			alert(" Status: " + status);
+            console.log(data);
 		},
 		"json");
 	});   
