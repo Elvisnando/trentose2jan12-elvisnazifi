@@ -1,0 +1,25 @@
+{
+  "name": "trentose2jan-elvisnazifi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elvisnando/trentose2jan12-elvisnazifi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elvisnando/trentose2jan12-elvisnazifi/issues"
+  },
+  "homepage": "https://github.com/Elvisnando/trentose2jan12-elvisnazifi#readme"
+}
